@@ -1,0 +1,10 @@
+/* Elimina flechas y demás en inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+body{
+    background: red;
+}
