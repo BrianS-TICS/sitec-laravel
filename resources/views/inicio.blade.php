@@ -28,7 +28,7 @@
                     Docencia y si eres alumno pide ayuda en La División.</p>
             </section>
             {{-- Formulario de logeo --}}
-            <form class="md:w-1/3 p-4 bg-slate-200 rounded-md" action="{{ route('muro') }}" method="POST">
+            <form class="md:w-1/3 p-4 bg-slate-200 rounded-md" action="{{ route('muro.index') }}" method="POST">
                 @csrf
                 <label class="block font-semibold mb-1" for="numero_control">Numero de control</label>
                 <input

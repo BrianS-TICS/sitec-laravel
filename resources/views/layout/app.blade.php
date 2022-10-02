@@ -37,7 +37,8 @@
             <nav class="mt-5 bg-slate-200 rounded-md border-b-gray-200 border-b-2">
                 <ul class="flex justify-around">
                     <li class="bg-gray-700 w-full rounded-l-md">
-                        <a class="font-bold p-3 text-gray-200 block text-center w-full" href="{{route('inicio')}}">Mi muro</a>
+                        <a class="font-bold p-3 text-gray-200 block text-center w-full"
+                            href="{{ route('inicio.index') }}">Mi muro</a>
                     </li>
                     <li class=" hover:bg-gray-700 flex w-full">
                         <a class="font-bold text-gray-700 p-3 hover:text-gray-200 block text-center w-full"

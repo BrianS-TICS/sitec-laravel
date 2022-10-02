@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\MuroController;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [InicioController::class, 'index'])->name('inicio');
+Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
+Route::post('/', [LoginController::class, 'store'])->name('inicio.store');
 
-Route::post('/muro', [LoginController::class, 'store'])->name('muro');
-Route::get('/muro', [PostController::class, 'index'])->name('post.index');
+Route::get("/registro", [RegisterController::class, "index"])->name("registro");
+Route::post("/registro", [RegisterController::class, "store"])->name("registro.post");
+
+Route::get('/muro', [MuroController::class, 'index'])->name('muro.index');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
