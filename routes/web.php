@@ -20,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
+Route::get('/', [LoginController::class, 'index'])->name('inicio.index');
 Route::post('/', [LoginController::class, 'store'])->name('inicio.store');
 
-Route::get("/registro", [RegisterController::class, "index"])->name("registro");
-Route::post("/registro", [RegisterController::class, "store"])->name("registro.post");
+Route::get("/register", [RegisterController::class, "index"])->name("register.index");
+Route::post("/register", [RegisterController::class, "store"])->name("register.post");
 
-Route::get('/muro', [MuroController::class, 'index'])->name('muro.index');
+Route::get('/muro/{user:numero_control}', [MuroController::class, 'index'])->name('muro.index');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -17,6 +19,15 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|min:5'
         ]);
 
+        User::create([
+            "numero_control" => $request->numero_control,
+            "password" => Hash::make($request->password)
+        ]);
 
+        auth()->attempt($request->only("numero_control", "password"));
+
+        dd(auth()->user());
+
+        return redirect()->route("muro.index", auth()->user()->numero_control);
     }
 }

@@ -28,7 +28,7 @@
                     Docencia y si eres alumno pide ayuda en La División.</p>
             </section>
             {{-- Formulario de logeo --}}
-            <form class="md:w-1/3 p-4 bg-slate-200 rounded-md" action="{{ route('muro.index') }}" method="POST">
+            <form class="md:w-1/3 p-4 bg-slate-200 rounded-md" action="{{ route('inicio.store') }}" method="POST">
                 @csrf
                 <label class="block font-semibold mb-1" for="numero_control">Numero de control</label>
                 <input
@@ -52,7 +52,7 @@
                     <p class="bg-red-500 text-white mb-1 rounded-md text-sm p-2 text-center font-bold">{{ $message }}</p>
                 @enderror
 
-                <a class="text-center block text-blue-800 underline decoration-2" href="">Recuperar contraseña</a>
+                <a class="text-center block text-blue-800 underline decoration-2" href="#">Recuperar contraseña</a>
                 <input type="submit"
                     class="block font-semibold bg-slate-800 text-white w-full py-2
                             mx-auto mt-4 rounded-sm hover:cursor-pointer

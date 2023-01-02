@@ -24,4 +24,8 @@ class LoginController extends Controller
         return redirect()->route('muro.index');
     }
 
+    public function index(){
+        return view("inicio");
+    }
+
 }
