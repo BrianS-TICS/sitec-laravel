@@ -8,24 +8,26 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function store(Request $request){
-
-        $this->validate($request,[
+    public function store(Request $request)
+    {
+        $this->validate($request, [
             'numero_control' => 'required|min:8|max:10',
             'password' => 'required|min:5'
         ]);
 
-        // Autenticacion
-        auth()->attempt([
-            'numero_control' => $request->numero_control,
-            'password' => $request->password
-        ]);
+        if(!auth()->attempt( $request->only('numero_control','password'),$request->remember )){
+            return back()->with('mensaje', 'Credenciales incorrectas');
+        }
 
-        return redirect()->route('muro.index');
+        return redirect()->route( 'muro.index', auth()->user()->numero_control );
     }
 
-    public function index(){
-        return view("inicio");
+    public function index()
+    {
+        if (!auth()->user()) {
+            return view("inicio");
+        } else {
+            return redirect()->route( 'muro.index', auth()->user()->numero_control );
+        }
     }
-
 }

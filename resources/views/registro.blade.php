@@ -7,7 +7,7 @@
 @section('contenido')
     <h1 class="font-black text-3xl text-center mb-6">Registro de usuarios</h1>
 
-    <form class="md:w-1/3 p-4 bg-slate-200 rounded-md mx-auto" action="{{ route("register.index") }}" method="POST">
+    <form class="md:w-1/3 p-4 bg-slate-200 rounded-md mx-auto" action="{{ route("register.store") }}" method="POST">
         @csrf
         <label class="block font-semibold mb-1" for="numero_control">Numero de control</label>
         <input id="numero_control"

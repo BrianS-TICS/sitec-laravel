@@ -38,7 +38,7 @@
                 <ul class="flex justify-around">
                     <li class="bg-gray-700 w-full rounded-l-md">
                         <a class="font-bold p-3 text-gray-200 block text-center w-full"
-                            href="{{ route('inicio.index') }}">Mi muro</a>
+                            href="{{ route('login') }}">Mi muro</a>
                     </li>
                     <li class=" hover:bg-gray-700 flex w-full">
                         <a class="font-bold text-gray-700 p-3 hover:text-gray-200 block text-center w-full"

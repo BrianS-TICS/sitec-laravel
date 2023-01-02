@@ -28,29 +28,31 @@
                     Docencia y si eres alumno pide ayuda en La División.</p>
             </section>
             {{-- Formulario de logeo --}}
-            <form class="md:w-1/3 p-4 bg-slate-200 rounded-md" action="{{ route('inicio.store') }}" method="POST">
+            <form class="md:w-1/3 p-4 bg-slate-200 rounded-md" action="{{ route('login.store') }}" method="POST">
                 @csrf
                 <label class="block font-semibold mb-1" for="numero_control">Numero de control</label>
-                <input
-                    id="numero_control"
-                    class="mb-2 w-full px-2 py-1 rounded-md @error('numero_control') border border-red-500 @enderror"     name="numero_control" type="number"
-                    value="{{ old('numero_control') }}"
-                    placeholder="Numero de control"
-                >
+                <input id="numero_control"
+                    class="mb-2 w-full px-2 py-1 rounded-md @error('numero_control') border border-red-500 @enderror"
+                    name="numero_control" type="number" value="{{ old('numero_control') }}"
+                    placeholder="Numero de control">
 
                 @error('numero_control')
                     <p class="bg-red-500 text-white mb-1 rounded-md text-sm p-2 text-center font-bold">{{ $message }}</p>
                 @enderror
 
                 <label class="block font-semibold" for="password">Contraseña</label>
-                <input
-                    id="password"
-                    class="mb-4 w-full px-2 py-1 rounded-md  @error('password') border border-red-500 @enderror" name="password" type="password" placeholder="Contraseña"
-                >
+                <input id="password"
+                    class="mb-4 w-full px-2 py-1 rounded-md  @error('password') border border-red-500 @enderror"
+                    name="password" type="password" placeholder="Contraseña">
 
                 @error('password')
                     <p class="bg-red-500 text-white mb-1 rounded-md text-sm p-2 text-center font-bold">{{ $message }}</p>
                 @enderror
+
+                @if (session('mensaje'))
+                    <p class="bg-red-500 text-white mb-1 rounded-md text-sm p-2 text-center font-bold">
+                        {{ session('mensaje') }}</p>
+                @endif
 
                 <a class="text-center block text-blue-800 underline decoration-2" href="#">Recuperar contraseña</a>
                 <input type="submit"
