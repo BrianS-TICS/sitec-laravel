@@ -15,11 +15,11 @@ class LoginController extends Controller
             'password' => 'required|min:5'
         ]);
 
-        if(!auth()->attempt( $request->only('numero_control','password'),$request->remember )){
+        if (!auth()->attempt($request->only('numero_control', 'password'), $request->remember)) {
             return back()->with('mensaje', 'Credenciales incorrectas');
         }
 
-        return redirect()->route( 'muro.index', auth()->user()->numero_control );
+        return redirect()->route('muro.index', auth()->user()->numero_control);
     }
 
     public function index()
@@ -27,7 +27,7 @@ class LoginController extends Controller
         if (!auth()->user()) {
             return view("inicio");
         } else {
-            return redirect()->route( 'muro.index', auth()->user()->numero_control );
+            return redirect()->route('muro.index', auth()->user()->numero_control);
         }
     }
 }

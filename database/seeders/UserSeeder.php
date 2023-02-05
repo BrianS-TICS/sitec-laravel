@@ -16,8 +16,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            "numero_control" => "19171289",
-            "password" => bcrypt("adminadmin")
+            "numero_control" => "19171290",
+            "password" => "19171290",
+            "rol" => 2
         ]);
     }
 }
